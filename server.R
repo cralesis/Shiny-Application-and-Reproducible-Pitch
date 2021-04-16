@@ -1,11 +1,18 @@
-install.packages("pacman")
-pacman::p_load(shiny, HistData, GaltonFamilies, dplyr, ggplot2)
+#
+# This is the server logic of a Shiny web application. You can run the 
+# application by clicking 'Run App' above.
+#
+# Find out more about building applications with Shiny here:
+# 
+#    http://shiny.rstudio.com/
+#
 
-# 1st step: Convert inches to cm
+#install.packages("pacman")
+pacman::p_load(shiny, HistData, dplyr, ggplot2)
+
+# 1st step: load data
+data(GaltonFamilies)
 gf <- GaltonFamilies
-gf <- gf %>% mutate(father=father*2.54,
-                    mother=mother*2.54,
-                    childHeight=childHeight*2.54)
 
 # linear model
 model1 <- lm(childHeight ~ father + mother + gender, data=gf)
@@ -14,9 +21,9 @@ shinyServer(function(input, output) {
   output$pText <- renderText({
     paste("Father's height is",
           strong(round(input$inFh, 1)),
-          "cm, and mother's height is",
+          "in, and mother's height is",
           strong(round(input$inMh, 1)),
-          "cm, then:")
+          "in, then:")
   })
   output$pred <- renderText({
     df <- data.frame(father=input$inFh,
@@ -31,7 +38,7 @@ shinyServer(function(input, output) {
     paste0(em(strong(kid)),
            "'s predicted height is going to be around ",
            em(strong(round(ch))),
-           " cm"
+           " in"
     )
   })
   output$Plot <- renderPlot({
