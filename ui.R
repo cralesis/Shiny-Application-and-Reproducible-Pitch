@@ -1,3 +1,12 @@
+#
+# This is the user-interface definition of a Shiny web application. You can
+# run the application by clicking 'Run App' above.
+#
+# Find out more about building applications with Shiny here:
+# 
+#    http://shiny.rstudio.com/
+#
+
 pacman::p_load(shiny)
 
 shinyUI(fluidPage(
@@ -7,16 +16,16 @@ shinyUI(fluidPage(
       helpText("Prediction of the child's height based on gender and parent's height"),
       helpText("Parameters:"),
       sliderInput(inputId = "inFh",
-                  label = "Father's height (cm):",
-                  value = 150,
-                  min = 150,
-                  max = 220,
+                  label = "Father's height (in):",
+                  value = 36,
+                  min = 36,
+                  max = 96,
                   step = 1),
       sliderInput(inputId = "inMh",
-                  label = "Mother's height (cm):",
-                  value = 140,
-                  min = 140,
-                  max = 200,
+                  label = "Mother's height (in):",
+                  value = 36,
+                  min = 36,
+                  max = 96,
                   step = 1),
       radioButtons(inputId = "inGen",
                    label = "Child's gender: ",
