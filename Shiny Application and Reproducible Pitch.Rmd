@@ -25,9 +25,9 @@ This peer assessed assignment has two parts.First, you will create a Shiny appli
 
 Using the data provided by Galton Families dataset, we fit a linear model to predict a child's height based on the gender and parent's average height.
 
-The application is running on (https://abinashiprakash.shinyapps.io/Reproducible_Pitch/)
+The application is running on (https://cralesis.shinyapps.io/Reproducible_Pitch/)
 
-ui.R, and Server.R Code in my github repository (https://github.com/abinashi-prakash/Reproducible_Pitch)
+ui.R, and Server.R Code in my github repository (https://github.com/cralesis/Shiny_Applications_and_Reproducible_Pitch)
 
 ## Plot
 ```{r plot,warning=FALSE}
